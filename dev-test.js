@@ -14,3 +14,5 @@ console.log(blockchain);
 
 blockchain.addBlock("100,- € an Boo, 50,-€ von Foo");
 console.log(blockchain);
+
+blockchain.addBlock()
