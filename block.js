@@ -1,3 +1,5 @@
+const SHA256 = require("crypto-js/sha256");
+
 class Block{
 
 // Konstruktor + Parameter
@@ -24,11 +26,16 @@ static genesis(){
 static mineBlock(lastBlock,data){ //weitere Blocks in der Chain
     const timestamp = Date.now(); // Zeit in ms seit 01.01.1970
     const lastHash = lastBlock.hash;
-    const hash = "toDo Hash";
+    const hash = Block.hash(timestamp,lastHash,data);
 
-    return new this(timestamp,lastHash,hash,data);
+    return new this(timestamp,lastHash,hash,data); // Erzeugen des Hash
 }
 
+static hash(timestamp,lastHash,data){
+    return SHA256(`${timestamp}${lastHash}${data}`).toString();
 }
 
+
+
+}
 module.exports = Block;
