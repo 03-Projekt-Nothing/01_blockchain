@@ -1,4 +1,4 @@
-const Block = required("./block");
+const Block = require("./block");
 
 class Blockchain{
     
